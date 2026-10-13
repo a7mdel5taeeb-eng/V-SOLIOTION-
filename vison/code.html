@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Vision and Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans Arabic', Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #007bff; color: white; text-align: center; padding: 20px; }
+        .logo { font-size: 2em; font-weight: bold; margin-bottom: 10px; }
+        nav { margin-top: 10px; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        form { max-width: 600px; margin: 0 auto; }
+        input, textarea, button { display: block; width: 100%; margin: 10px 0; padding: 10px; }
+        button { background-color: #28a745; color: white; border: none; cursor: pointer; }
+        .lang-toggle { position: absolute; top: 10px; right: 10px; }
+        .rtl { direction: rtl; text-align: right; }
+        .ltr { direction: ltr; text-align: left; }
+    </style>
+</head>
+<body class="ltr">
+    <header>
+        <div class="logo">VISION AND SOLUTION</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <div class="lang-toggle">
+            <button onclick="toggleLanguage()">العربية / English</button>
+        </div>
+    </header>
+    <div class="container">
+        <h1 id="contact-title">Contact Us</h1>
+        <p id="contact-desc">Get in touch for inquiries or bookings.</p>
+        <form action="#" method="post">
+            <label for="name" id="name-label">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email" id="email-label">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message" id="message-label">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit" id="submit-btn">Send Message</button>
+        </form>
+    </div>
+    <script>
+        let isArabic = false;
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            document.body.className = isArabic ? 'rtl' : 'ltr';
+            document.getElementById('contact-title').textContent = isArabic ? 'اتصل بنا' : 'Contact Us';
+            document.getElementById('contact-desc').textContent = isArabic ? 'تواصل معنا للاستفسارات أو الحجوزات.' : 'Get in touch for inquiries or bookings.';
+            document.getElementById('name-label').textContent = isArabic ? 'الاسم:' : 'Name:';
+            document.getElementById('email-label').textContent = isArabic ? 'البريد الإلكتروني:' : 'Email:';
+            document.getElementById('message-label').textContent = isArabic ? 'الرسالة:' : 'Message:';
+            document.getElementById('submit-btn').textContent = isArabic ? 'إرسال الرسالة' : 'Send Message';
+        }
+    </script>
+</body>
+</html>

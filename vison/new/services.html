@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Quote | Vision & Solution</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Same Main Settings --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            overflow-x: hidden; direction: ltr;
+        }
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
+
+        :root {
+            --primary: #00d4ff; 
+            --primary-dark: #007bff;
+        }
+
+        /* --- Unified Logo --- */
+        .brand-area { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo-box {
+            width: 60px; height: 60px; 
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
+            color: #fff; font-weight: 900; font-size: 28px; 
+            display: flex; justify-content: center; align-items: center;
+            border-radius: 10px; box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); 
+            transform: skewX(-10deg); border: 2px solid rgba(255,255,255,0.8);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden;
+        }
+        .logo-box::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent); transition: 0.5s;
+        }
+        .logo-box span { transform: skewX(10deg); transition: 0.4s; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1; }
+        .logo-text .main-name { font-size: 1.4rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+        .logo-text .sub-name { font-size: 0.7rem; color: var(--primary); font-weight: 600; margin-top: 4px; letter-spacing: 1px; }
+        
+        .brand-area:hover .logo-box { transform: skewX(0deg) rotate(5deg) scale(1.1); box-shadow: 0 0 40px rgba(0, 212, 255, 0.8); background: #fff; color: var(--primary-dark); border-color: var(--primary); }
+        .brand-area:hover .logo-box::before { left: 100%; }
+        .brand-area:hover .logo-text .main-name { color: var(--primary); padding-left: 5px; }
+
+        /* --- Navbar --- */
+        .main-nav {
+            padding: 20px 50px; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(0,0,0,0.9); border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links li a { color: #fff; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; }
+        .nav-links li a:hover, .nav-links li a.active { color: var(--primary); }
+
+        /* --- Form Section --- */
+        .service-container {
+            min-height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+            padding: 50px 20px;
+        }
+
+        .form-card {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid var(--primary);
+            padding: 50px; border-radius: 20px;
+            width: 100%; max-width: 900px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .form-header { text-align: center; margin-bottom: 40px; }
+        .form-header h1 { font-size: 2.5rem; color: #fff; margin-bottom: 10px; text-transform: uppercase; }
+        .form-header h1 span { color: var(--primary); }
+        .form-header p { color: #ccc; font-size: 1.1rem; }
+
+        /* Form Grid */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        
+        .input-group { display: flex; flex-direction: column; }
+        .input-group label { color: var(--primary); font-weight: 700; margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase; }
+        
+        .input-group input, .input-group select {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px; border-radius: 8px; color: #fff; font-size: 1rem; font-family: 'Montserrat', sans-serif; transition: 0.3s;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--primary); background: rgba(255,255,255,0.1); outline: none;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .full-width { grid-column: span 2; }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: #fff; padding: 18px; border: none; border-radius: 8px;
+            font-size: 1.2rem; font-weight: 800; font-family: 'Montserrat', sans-serif;
+            cursor: pointer; transition: 0.3s; margin-top: 20px; text-transform: uppercase;
+        }
+
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3); }
+
+        @media (max-width: 768px) {
+            .main-nav { flex-direction: column; gap: 20px; padding: 15px; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+            .form-card { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <a href="index.html" class="brand-area">
+            <div class="logo-box"><span>VS</span></div>
+            <div class="logo-text">
+                <span class="main-name">Vision & Solution</span>
+                <span class="sub-name">Transport & Logistics</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="#">Tracking</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="services-ar.html" style="border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; color: var(--primary);">العربية</a></li>
+        </ul>
+    </nav>
+
+    <div class="service-container">
+        <div class="form-card">
+            <div class="form-header">
+                <h1>Get a <span>Quote</span></h1>
+                <p>Fill in the details below and we will get back to you shortly.</p>
+            </div>
+
+            <!-- FormSubmit Connection -->
+            <form action="https://formsubmit.co/vsolutions615@gmail.com" method="POST" class="form-grid">
+                
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Quote Request - Vision & Solution">
+
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" name="Name" placeholder="John Doe" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="Phone" placeholder="+966 5xxxxxxxx" required>
+                </div>
+
+                <div class="input-group full-width">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="example@mail.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label>From City</label>
+                    <input type="text" name="From_City" placeholder="Dammam" required>
+                </div>
+
+                <div class="input-group">
+                    <label>To City / Country</label>
+                    <input type="text" name="To_City" placeholder="Riyadh / Dubai" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Truck Type</label>
+                    <select name="Truck_Type">
+                        <option value="Flatbed">Flatbed (Normal)</option>
+                        <option value="Hydraulic">Hydraulic</option>
+                        <option value="Closed VIP">Closed Carrier (VIP)</option>
+                        <option value="Lowbed">Lowbed (Heavy)</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Cargo Type</label>
+                    <input type="text" name="Cargo_Type" placeholder="Car, Goods, Machinery..." required>
+                </div>
+
+                <div class="input-group">
+                    <label>Estimated Weight (Optional)</label>
+                    <input type="text" name="Weight" placeholder="e.g., 2 Tons">
+                </div>
+
+                <div class="input-group">
+                    <label>Preferred Date</label>
+                    <input type="date" name="Date">
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Request <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

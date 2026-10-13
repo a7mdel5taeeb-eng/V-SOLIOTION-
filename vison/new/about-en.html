@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Vision & Solution</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- General Settings --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            /* Same Truck Background */
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                        url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            direction: ltr; /* Left to Right */
+        }
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
+
+        :root {
+            --primary: #00d4ff; 
+            --primary-dark: #007bff;
+            --dark-bg: #0a0a0a;
+            --text-gray: #ccc;
+        }
+
+        /* --- Unified Animated Logo --- */
+        .brand-area { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo-box {
+            width: 60px; height: 60px; 
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
+            color: #fff; font-weight: 900; font-size: 28px; 
+            display: flex; justify-content: center; align-items: center;
+            border-radius: 10px; box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); 
+            transform: skewX(-10deg); border: 2px solid rgba(255,255,255,0.8);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden;
+        }
+        .logo-box::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent); transition: 0.5s;
+        }
+        .logo-box span { transform: skewX(10deg); transition: 0.4s; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1; }
+        .logo-text .main-name { font-size: 1.4rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .logo-text .sub-name { font-size: 0.7rem; color: var(--primary); font-weight: 600; margin-top: 4px; letter-spacing: 1px; }
+        
+        .brand-area:hover .logo-box { transform: skewX(0deg) rotate(5deg) scale(1.1); box-shadow: 0 0 40px rgba(0, 212, 255, 0.8); background: #fff; color: var(--primary-dark); border-color: var(--primary); }
+        .brand-area:hover .logo-box::before { left: 100%; }
+        .brand-area:hover .logo-text .main-name { color: var(--primary); padding-left: 5px; }
+
+        /* --- Navbar --- */
+        .main-nav {
+            padding: 20px 50px; display: flex; justify-content: space-between; align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent); border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links li a { color: #fff; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; }
+        .nav-links li a:hover, .nav-links li a.active { color: var(--primary); }
+
+        /* --- Page Header --- */
+        .page-header {
+            padding: 100px 0 50px; text-align: center;
+        }
+        .page-header h1 { font-size: 3.5rem; color: #fff; font-weight: 900; margin-bottom: 10px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); text-transform: uppercase; }
+        .page-header p { font-size: 1.2rem; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; }
+
+        /* --- Content Section --- */
+        .about-section { padding: 20px 20px 80px; max-width: 1200px; margin: auto; }
+        
+        .intro-box {
+            text-align: center; margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .intro-box h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--primary); text-transform: uppercase; font-weight: 800; }
+        .intro-box p { font-size: 1.15rem; line-height: 1.8; color: #f0f0f0; max-width: 900px; margin: auto; }
+
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px; margin-bottom: 60px;
+        }
+        .feature-card {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px; border-radius: 12px;
+            text-align: center; transition: 0.4s; border: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden;
+        }
+        .feature-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--primary); transform: scaleX(0); transition: 0.4s;
+        }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2); border-color: var(--primary); background: rgba(0,0,0,0.8); }
+        .feature-card:hover::before { transform: scaleX(1); }
+
+        .feature-icon {
+            font-size: 40px; color: var(--primary); margin-bottom: 20px;
+            background: rgba(0, 212, 255, 0.1); width: 80px; height: 80px;
+            display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: auto; margin-right: auto;
+        }
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 15px; color: #fff; font-weight: 800; text-transform: uppercase; }
+        .feature-card p { color: #ccc; line-height: 1.6; font-size: 0.95rem; }
+
+        .team-section {
+            background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 15px;
+            display: flex; align-items: center; gap: 30px; 
+            border-left: 5px solid var(--primary); /* Left border for English */
+            backdrop-filter: blur(5px);
+        }
+        .team-icon { font-size: 50px; color: var(--primary); }
+        .team-text p { font-size: 1.1rem; line-height: 1.7; color: #ddd; }
+
+        .cta-container { text-align: center; margin-top: 60px; }
+        .btn-main {
+            background: var(--primary); color: #000; padding: 15px 50px;
+            font-size: 1.1rem; font-weight: 800; border-radius: 50px;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5); display: inline-block; text-transform: uppercase;
+        }
+        .btn-main:hover { background: #fff; transform: scale(1.05); }
+
+        footer { background: rgba(0,0,0,0.9); padding: 20px; text-align: center; margin-top: 50px; border-top: 1px solid #333; }
+
+        @media (max-width: 768px) {
+            .main-nav { flex-direction: column; gap: 20px; padding: 15px; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+            .team-section { flex-direction: column; text-align: center; border-left: none; border-top: 5px solid var(--primary); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="main-nav">
+        <a href="index.html" class="brand-area">
+            <div class="logo-box"><span>VS</span></div>
+            <div class="logo-text">
+                <span class="main-name">Vision & Solution</span>
+                <span class="sub-name">Transport & Logistics</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about-en.html" class="active">About Us</a></li>
+            <li><a href="ar.html" style="border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; color: var(--primary);">العربية</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>About Us</h1>
+        <p>Your Strategic Partner in Transport & Logistics</p>
+    </header>
+
+    <!-- Content -->
+    <section class="about-section">
+        
+        <!-- Intro Text -->
+        <div class="intro-box">
+            <h2>Vision & Solution</h2>
+            <p>
+                We are a leading Saudi entity established with an ambitious vision to provide integrated logistics solutions.
+                Launched from our headquarters in <strong>Dammam</strong>, we connect the Kingdom's cities and extend commercial bridges to all GCC countries.
+            </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+            <!-- Card 1 -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-medal"></i></div>
+                <h3>Purely Saudi Partnership</h3>
+                <p>Proud to be a 100% national company, contributing to achieving the Kingdom's ambitious logistics vision.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Success Partners</h3>
+                <p>We hold strategic contracts with major factories and companies to transport goods and cars between various provinces.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-globe-asia"></i></div>
+                <h3>Crossing Borders</h3>
+                <p>Our services are not limited to the domestic level; we possess international transport permits for all GCC countries.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                <h3>Around the Clock</h3>
+                <p>Our field and administrative teams work 24/7 to ensure your shipment arrives on time without delay.</p>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="team-section">
+            <div class="team-icon"><i class="fas fa-users-gear"></i></div>
+            <div class="team-text">
+                <p>Behind this success stands an integrated team (administrative, office, and field) trained to the highest levels of professionalism to ensure the safety of your transport at every step.</p>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="cta-container">
+            <a href="services.html" class="btn-main">Contact Us Now <i class="fas fa-phone-alt"></i></a>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>All Rights Reserved &copy; 2024 Vision & Solution Transport</p>
+    </footer>
+
+</body>
+</html>
