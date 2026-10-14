@@ -3,6 +3,30 @@
     {
       "source": "/tracking",
       "destination": "/vison/new/tracking.html"
+    },
+    {
+      "source": "/tracking-ar",
+      "destination": "/vison/new/tracking-ar.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/vison/new/services.html"
+    },
+    {
+      "source": "/services-ar",
+      "destination": "/vison/new/services-ar.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/vison/new/about-en.html"
+    },
+    {
+      "source": "/about-ar",
+      "destination": "/vison/new/about.html"
+    },
+    {
+      "source": "/ar",
+      "destination": "/vison/new/ar.html"
     }
   ]
 }
