@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/tracking",
+      "destination": "/vison/new/tracking.html"
+    }
+  ]
+}
