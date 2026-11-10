@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+<title id="title">Vision &amp; Solution — Transport &amp; Logistics</title>
+<desc id="desc">Dark navy banner with cyan route accents and bilingual project identity.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#070d1c"/><stop offset="1" stop-color="#123c57"/></linearGradient>
+<linearGradient id="blue" x1="0" x2="1"><stop stop-color="#00d4ff"/><stop offset="1" stop-color="#4687ff"/></linearGradient>
+</defs>
+<rect width="1200" height="300" rx="20" fill="url(#bg)"/>
+<path d="M0 238 C275 165 360 290 620 175 S995 120 1200 55" fill="none" stroke="#14647e" stroke-width="3" opacity=".55"/>
+<path d="M0 265 C250 190 460 300 675 210 S1020 138 1200 85" fill="none" stroke="#35c7dc" stroke-width="2" stroke-dasharray="9 11" opacity=".55"/>
+<circle cx="1040" cy="75" r="8" fill="#00d4ff"/><circle cx="795" cy="177" r="6" fill="#00d4ff"/>
+<rect x="62" y="70" width="118" height="118" rx="22" fill="url(#blue)"/>
+<text x="121" y="143" fill="#061626" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="800">VS</text>
+<text x="216" y="117" fill="white" font-family="Arial, sans-serif" font-size="44" font-weight="800">VISION &amp; SOLUTION</text>
+<text x="218" y="157" fill="#70e7ff" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">TRANSPORT &amp; LOGISTICS</text>
+<text x="218" y="203" fill="#c1d4e0" font-family="Arial, sans-serif" font-size="19">Bilingual website  •  GitHub + Vercel  •  Official company domain</text>
+<text x="63" y="254" fill="#91aebe" font-family="Arial, sans-serif" font-size="17">www.vsolutions.co</text>
+</svg>
